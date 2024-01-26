@@ -1,0 +1,52 @@
+{
+  "activity_summary": [
+    {
+      "type": "Buy",
+      "count": 4,
+      "fiat_currency": "USD",
+      "amount_fiat": "32.30",
+      "crypto_currency": "BTC",
+      "amount_crypto": 0.00003747
+    },
+    {
+      "type": "Sell",
+      "count": 1,
+      "fiat_currency": "USD",
+      "amount_fiat": "1231.23",
+      "crypto_currency": "ETH",
+      "amount_crypto": 0.03747042
+    },
+    {
+      "type": "Buy",
+      "count": 1,
+      "fiat_currency": "USD",
+      "amount_fiat": "1400",
+      "crypto_currency": "BTC",
+      "amount_crypto": 0.03747042
+    },
+    {
+      "type": "Buy",
+      "count": 1,
+      "fiat_currency": "USD",
+      "amount_fiat": "1400",
+      "crypto_currency": "BTC",
+      "amount_crypto": 0.03747042
+    },
+    {
+      "type": "Buy",
+      "count": 1,
+      "fiat_currency": "USD",
+      "amount_fiat": "1400",
+      "crypto_currency": "BTC",
+      "amount_crypto": 0.03747042
+    },
+    {
+      "type": "Buy",
+      "count": 1,
+      "fiat_currency": "USD",
+      "amount_fiat": "1400",
+      "crypto_currency": "BTC",
+      "amount_crypto": 0.03747042
+    }
+  ]
+}

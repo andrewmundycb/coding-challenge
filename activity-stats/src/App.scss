@@ -1,0 +1,17 @@
+$title1-font-size: 25px;
+$title3-font-size: 17px;
+$headline-font-size: 14px;
+$headline-font-weight: 600;
+$body-font-size: 14px;
+$body-font-weight: 400;
+$color-primary: rgba(0,82,255);
+$color-foreground-muted: rgba(91,97,110);
+$color-foreground: rgba(10,11,13);
+$padding-spacing-4: 20px;
+$border-color-line:1px solid rgba(var(91,97,110),0.2);
+$border-radius-rounded: 8px;
+
+.App {
+  background: white;
+  font-family: -apple-system,BlinkMacSystemFont,"Segoe UI","Roboto","Helvetica","Arial",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+}
