@@ -24,17 +24,19 @@ const ActivityRow = ({ rowData }: { rowData: CombinedData }) => {
   const { type, count, fiat_currency, amount_fiat, crypto_currencies } =
     rowData;
   return (
-    <div className="activity__summary__row" role="listitem">
-      <div>Total {type}s</div>
-      <div>{formatCurrency(amount_fiat, fiat_currency)}</div>
-      <div>
+    <div className="activity__row" role="listitem">
+      <h3 className="activity__row__label">Total {type}s</h3>
+      <div className="activity__row__total">
+        {formatCurrency(amount_fiat, fiat_currency)}
+      </div>
+      <div className="activity__row__crypto">
         {crypto_currencies.size === 1
           ? `${Array.from(crypto_currencies)[0]}`
           : `${Array.from(crypto_currencies)[0]} + ${
               crypto_currencies.size - 1
             } others`}
       </div>
-      <div>
+      <div className="activity__row__transactions">
         {count} Transaction{count > 1 ? "s" : ""}
       </div>
     </div>
@@ -46,26 +48,27 @@ const ActivityStats = () => {
     return combineDataRows(apiData.activity_summary);
   });
 
-  console.log(activityData);
-
   return (
-    <>
-      <div className="activity__header">
-        <h2>Transactions</h2>
-        <button type="button" aria-label="Opens full report in a modal">
-          View Report
-        </button>
-      </div>
-      {activityData ? (
-        <div className="activity__summary" role="list">
-          {Array.from(activityData.entries()).map(([type, info]) => {
-            return <ActivityRow key={type} rowData={info} />;
-          })}
+    <div className="activity">
+      <h1>Activity</h1>
+      <div className="activity__inner">
+        <div className="activity__header">
+          <h2>Transactions</h2>
+          <button type="button" aria-label="Opens full report in a modal">
+            View Report
+          </button>
         </div>
-      ) : (
-        <p>Loading...</p>
-      )}
-    </>
+        {activityData ? (
+          <div className="activity__rows" role="list">
+            {Array.from(activityData.entries()).map(([type, info]) => {
+              return <ActivityRow key={type} rowData={info} />;
+            })}
+          </div>
+        ) : (
+          <p>Loading...</p>
+        )}
+      </div>
+    </div>
   );
 };
 
@@ -109,7 +112,6 @@ const combineDataRows = (data: ActivityData[]): Map<string, CombinedData> => {
     }
   );
 
-  console.log(combinedData);
   return combinedData;
 };
 
