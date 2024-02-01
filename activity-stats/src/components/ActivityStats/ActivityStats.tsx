@@ -84,7 +84,7 @@ const combineDataRows = (data: ActivityData[]): Map<string, CombinedData> => {
   data.forEach(
     ({ type, count, amount_fiat, fiat_currency, crypto_currency }) => {
       if (combinedData.has(type)) {
-        // Add to existing if already exists
+        // Existing entry updates
         const prevData = combinedData.get(type);
 
         const newCombined = {
@@ -97,12 +97,13 @@ const combineDataRows = (data: ActivityData[]): Map<string, CombinedData> => {
         };
         combinedData.set(type, newCombined);
       } else {
+        // New Entry Creation
         combinedData.set(type, {
           count,
           amount_fiat: Number(amount_fiat),
           fiat_currency,
-          crypto_currencies: new Set([crypto_currency]),
           type,
+          crypto_currencies: new Set([crypto_currency]),
         });
       }
     }
