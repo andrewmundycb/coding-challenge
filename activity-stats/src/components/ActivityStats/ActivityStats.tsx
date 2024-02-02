@@ -75,14 +75,12 @@ const ActivityStats = () => {
 };
 
 export const formatCurrency = (amount: number, currency: string) => {
-  // const currencyFormat = new Intl.NumberFormat("en-US", {
-  //   style: "currency",
-  //   currency: currency,
-  // });
+  const currencyFormat = new Intl.NumberFormat("en-US", {
+    style: "currency",
+    currency: currency,
+  });
 
-  // return currencyFormat.format(Number(amount));
-
-  return amount.toFixed(2);
+  return currencyFormat.format(Number(amount));
 };
 
 export const combineDataRows = (

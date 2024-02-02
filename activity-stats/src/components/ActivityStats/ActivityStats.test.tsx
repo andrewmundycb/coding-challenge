@@ -26,9 +26,6 @@ describe("ActivityRow", () => {
   });
 });
 
-// #### Helper Functions
-// - **`formatCurrency`**: Test if it correctly formats different amounts and currencies.
-// - **`combineDataRows`**: Ensure it correctly combines rows of data, summing up amounts, transactions count, and accumulating unique cryptocurrencies.
 describe("formatCurrency", () => {
   it("correctly formats USD currency", () => {
     const result = formatCurrency(1234.56, "USD");
