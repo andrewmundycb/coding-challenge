@@ -1,5 +1,5 @@
 import { useState } from "react";
-import apiData from "../../api-data.json";
+import { mockActivityStatsData } from "./mockActivityStatsData";
 import "./ActivityStats.scss";
 
 type ActivityData = {
@@ -8,7 +8,6 @@ type ActivityData = {
   fiat_currency: string;
   amount_fiat: string;
   crypto_currency: string;
-  amount_crypto: number;
 };
 
 type CombinedData = {
@@ -18,6 +17,10 @@ type CombinedData = {
   amount_fiat: number;
   crypto_currencies: Set<string>;
 };
+
+// What is count?
+// What constitutes a transaction?
+// fiat currency - can it differ? Does it need to first be converted to dollars and then totalled?
 
 export const ActivityRow = ({ rowData }: { rowData: CombinedData }) => {
   const { type, count, fiat_currency, amount_fiat, crypto_currencies } =
@@ -44,7 +47,7 @@ export const ActivityRow = ({ rowData }: { rowData: CombinedData }) => {
 
 const ActivityStats = () => {
   const [activityData] = useState<Map<string, CombinedData>>(() => {
-    return combineDataRows(apiData.activity_summary);
+    return combineDataRows(mockActivityStatsData);
   });
 
   return (
@@ -71,13 +74,15 @@ const ActivityStats = () => {
   );
 };
 
-export const formatCurrency = (amount: number | string, currency: string) => {
-  const currencyFormat = new Intl.NumberFormat("en-US", {
-    style: "currency",
-    currency: currency,
-  });
+export const formatCurrency = (amount: number, currency: string) => {
+  // const currencyFormat = new Intl.NumberFormat("en-US", {
+  //   style: "currency",
+  //   currency: currency,
+  // });
 
-  return currencyFormat.format(Number(amount));
+  // return currencyFormat.format(Number(amount));
+
+  return amount.toFixed(2);
 };
 
 export const combineDataRows = (
