@@ -17,10 +17,9 @@ type CombinedData = {
   fiat_currency: string;
   amount_fiat: number;
   crypto_currencies: Set<string>;
-  amount_crypto: number;
 };
 
-const ActivityRow = ({ rowData }: { rowData: CombinedData }) => {
+export const ActivityRow = ({ rowData }: { rowData: CombinedData }) => {
   const { type, count, fiat_currency, amount_fiat, crypto_currencies } =
     rowData;
   return (
@@ -72,7 +71,7 @@ const ActivityStats = () => {
   );
 };
 
-const formatCurrency = (amount: number | string, currency: string) => {
+export const formatCurrency = (amount: number | string, currency: string) => {
   const currencyFormat = new Intl.NumberFormat("en-US", {
     style: "currency",
     currency: currency,
@@ -81,7 +80,9 @@ const formatCurrency = (amount: number | string, currency: string) => {
   return currencyFormat.format(Number(amount));
 };
 
-const combineDataRows = (data: ActivityData[]): Map<string, CombinedData> => {
+export const combineDataRows = (
+  data: ActivityData[]
+): Map<string, CombinedData> => {
   const combinedData = new Map();
 
   data.forEach(
