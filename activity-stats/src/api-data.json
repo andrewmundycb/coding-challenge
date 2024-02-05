@@ -29,7 +29,7 @@
       "count": 1,
       "fiat_currency": "USD",
       "amount_fiat": "1400",
-      "crypto_currency": "BTC",
+      "crypto_currency": "ETH",
       "amount_crypto": 0.03747042
     },
     {
@@ -37,7 +37,7 @@
       "count": 1,
       "fiat_currency": "USD",
       "amount_fiat": "1400",
-      "crypto_currency": "BTC",
+      "crypto_currency": "GBP",
       "amount_crypto": 0.03747042
     },
     {

@@ -1,0 +1,99 @@
+@import "../../App.scss";
+
+.section-header {
+  margin-bottom: 1.8rem;
+}
+
+.activity {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  padding: 0 2rem;
+  box-sizing: border-box;
+  * {
+    box-sizing: border-box;
+  }
+  @media (max-width: 749px) {
+    padding: 1rem;
+  }
+}
+
+.activity__inner {
+  border: $border-color-line;
+  border-radius: $border-radius-rounded;
+  padding: $padding-spacing-4;
+  max-width: 40rem;
+  width: 100%;
+}
+
+.activity__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  border-bottom: $border-color-line;
+  @media (min-width: 750px) {
+    margin-bottom: $padding-spacing-4;
+  }
+  h2,
+  button {
+    background-color: transparent;
+    border: none;
+    outline: none;
+    font-size: $title3-font-size;
+    font-family: inherit;
+    font-weight: $headline-font-weight;
+  }
+
+  button {
+    color: $color-primary;
+    cursor: pointer;
+    padding: 1rem 0 0;
+    border-bottom: 1px solid transparent;
+    transition: all 0.2s ease;
+  }
+  button:hover {
+    border-bottom-color: $color-primary;
+  }
+}
+
+.activity__rows {
+  @media (min-width: 750px) {
+    display: grid;
+    grid-gap: 0.8rem;
+  }
+}
+
+.activity__row {
+  grid-gap: 0.5rem;
+  display: grid;
+  @media (min-width: 750px) {
+    align-items: baseline;
+    grid-template-columns: 3fr 2fr 3fr 3fr;
+  }
+  @media (max-width: 749px) {
+    grid-gap: 1rem;
+
+    padding-bottom: $padding-spacing-4;
+    padding-top: $padding-spacing-4;
+  }
+  &:not(:last-child) {
+    @media (max-width: 749px) {
+      border-bottom: $border-color-line;
+    }
+  }
+}
+
+.activity__row__label {
+  font-weight: $headline-font-weight;
+  font-size: $headline-font-size;
+  color: $color-foreground-muted;
+  margin: 0;
+}
+
+.activity__row__total {
+  font-weight: $headline-font-weight;
+}
+
+.activity__row__transactions,
+.activity__row__crypto {
+  color: $color-foreground-muted;
+}
